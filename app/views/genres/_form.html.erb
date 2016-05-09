@@ -11,11 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="field form-group">
+    <% f.label :genre_id %>
+     <%= f.collection_select :genre_id, Genre.order('name'), :id, :name, {prompt: "select a genre"}, {class: "form-control"} %>
+  </div>
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<!-- <div class="field form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control"%>
+  </div>
+  <div class="field form-group">
+    <%= f.label :genre_id %><br>
+    <%= f.collection_select :genre_id, Genre.order('name'), :id, :name, {prompt: "select a genre"}, {class: "form-control"} %>
+  </div>
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+ -->
